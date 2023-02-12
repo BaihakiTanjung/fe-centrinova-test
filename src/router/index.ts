@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/IndexView.vue";
 import Cookie from "js-cookie";
+import axios from "axios";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,6 +58,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const token = Cookie.get("auth.token");
+
   if (to.name === "login" && token) {
     next({ name: "admin-home" });
   } else if (

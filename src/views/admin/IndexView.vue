@@ -4,15 +4,12 @@ import EditModal from "@/components/modal/admin/EditModal.vue";
 import DeleteModal from "@/components/modal/admin/DeleteModal.vue";
 import CommentModal from "@/components/modal/admin/CommentModal.vue";
 import { usePostStore } from "@/stores/post";
-import { useAuthStore } from "@/stores/auth";
 import { onMounted, ref, computed } from "vue";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 import { useRouter, useRoute } from "vue-router";
-import auth from "@/services/auth";
 
 const postStore = usePostStore();
-const authStore = useAuthStore();
 const router = useRouter();
 const route = useRoute();
 
@@ -56,7 +53,6 @@ onMounted(async () => {
   const query = (await route.query) as any;
   page.value = parseInt(query?.page) || 1;
   postStore.fetchPosts(query);
-  authStore.profile();
 });
 
 const updateHandler = async (page: number) => {

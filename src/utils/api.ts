@@ -1,18 +1,23 @@
 import axios, { type AxiosRequestConfig } from "axios";
 import Cookies from "js-cookie";
 // const host = import.meta.env.VITE_BASE_URL;
+console.log(import.meta.env);
 const host = "https://dev-sample-api.e-learning.co.id";
 const baseUrl = `${host}/api/`;
 
-const authToken = Cookies.get("auth.token");
+// const authToken = Cookies.get("auth.token");
 
-console.log("authToken", authToken);
+// console.log("authToken", authToken);
 
-axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+// axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
 
 // axios interceptor refresh token
 axios.interceptors.response.use(
-  (response) => {
+  async (response) => {
+    const authToken = await Cookies.get("auth.token");
+
+    axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+
     return response;
   },
   async (error) => {

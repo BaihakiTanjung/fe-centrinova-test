@@ -20,6 +20,14 @@ export const useAuthStore = defineStore("auth", () => {
       Cookies.set("auth.token", response?.jwt, { expires: 1 });
       Cookies.set("auth.refreshToken", response?.refreshToken, { expires: 1 });
 
+      if (response?.jwt) {
+        setTimeout(() => {
+          profile();
+        }, 1000);
+      }
+
+      showSuccessPopup("success", "Login successfully");
+
       return response;
     } catch (error) {
       showFailedPopup("error", "Invalid credentials");

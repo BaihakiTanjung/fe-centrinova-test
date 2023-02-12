@@ -14,7 +14,6 @@ const form = reactive({
 const handleLogin = async () => {
   await authStore.login(form).then(() => {
     router.push("/admin");
-    window.location.reload();
   });
 };
 </script>

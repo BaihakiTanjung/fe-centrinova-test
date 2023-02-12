@@ -115,6 +115,7 @@ const updateHandler = async (page: number) => {
                     {{ sliceCharacter(post.title, 15) }}
                   </h2>
                   <p>{{ sliceCharacter(post.short_text, 30) }}</p>
+                  <p>Comment : 10</p>
                 </div>
               </div>
             </div>
@@ -148,6 +149,7 @@ const updateHandler = async (page: number) => {
                   {{ sliceCharacter(post.title, 15) }}
                 </h2>
                 <p>{{ sliceCharacter(post.short_text, 30) }}</p>
+                <p>Comment : 10</p>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import EditModal from "@/components/modal/admin/EditModal.vue";
 import DeleteModal from "@/components/modal/admin/DeleteModal.vue";
 import CommentModal from "@/components/modal/admin/CommentModal.vue";
 import { usePostStore } from "@/stores/post";
+
 import { onMounted, ref, computed } from "vue";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
@@ -76,8 +77,8 @@ const updateHandler = async (page: number) => {
   <AddModal ref="addModalRef" />
   <!-- End Modal -->
 
-  <section class="home">
-    <div class="card bg-base-100 shadow-xl p-5 my-5">
+  <section class="home p-2">
+    <div class="card bg-base-100 shadow-xl p-5 my-5 w-full">
       <div class="flex justify-between">
         <h1 class="text-xl font-bold">List Entries</h1>
         <button

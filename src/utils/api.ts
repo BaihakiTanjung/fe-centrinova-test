@@ -1,15 +1,9 @@
-import axios, { type AxiosRequestConfig } from "axios";
+import axios from "axios";
 import Cookies from "js-cookie";
-// const host = import.meta.env.VITE_BASE_URL;
-console.log(import.meta.env);
-const host = "https://dev-sample-api.e-learning.co.id";
+
+const host = import.meta.env.VITE_BASE_URL || "";
+console.log(host);
 const baseUrl = `${host}/api/`;
-
-// const authToken = Cookies.get("auth.token");
-
-// console.log("authToken", authToken);
-
-// axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
 
 // axios interceptor refresh token
 axios.interceptors.response.use(

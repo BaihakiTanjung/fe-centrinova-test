@@ -53,7 +53,7 @@ const handleDelete = (id: string) => {
       </button>
       <h3 class="text-lg font-bold">Comment</h3>
       <div class="py-4">
-        <div class="overflow-x-auto">
+        <div v-if="getComments?.data?.length > 0" class="overflow-x-auto">
           <table class="table w-full">
             <!-- head -->
             <thead>
@@ -78,6 +78,11 @@ const handleDelete = (id: string) => {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div v-else>
+          <div class="flex justify-center">
+            <h1 class="text-xl font-bold">Data not found</h1>
+          </div>
         </div>
       </div>
     </div>

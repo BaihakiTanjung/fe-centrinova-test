@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { usePostStore } from "@/stores/post";
 import { useCommentStore } from "@/stores/comment";
-import { onMounted, computed, ref } from "vue";
+import { onMounted, computed, ref, reactive } from "vue";
 import { useRoute } from "vue-router";
 import TheLoading from "@/components/TheLoading.vue";
 import VPagination from "@hennge/vue3-pagination";
@@ -23,10 +23,10 @@ onMounted(async () => {
   isLoading.value = false;
 });
 
-const formComment = {
+const formComment = reactive({
   name: "",
   comment: "",
-};
+});
 
 const handleComment = async () => {
   await commentStore.createComment(route.params.slug, formComment);
